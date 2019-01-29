@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// 二分查找
+int binarySearch(int* A,int x,int length)
+{
+	int low = 0;
+	int high = length - 1;
+	while(low <= high)
+	{
+		int mid = (low + high)/2;
+		if(A[mid] == x)
+			return mid;
+		else if(A[mid] > x)
+			high = mid - 1;
+		else 
+			low = mid + 1;
+	}
+	return -1;
+}
+
+int main()
+{
+	int A[4] = {1 ,2 ,6 ,34};
+	int x = 6;
+	cout << "在数组中的位置：" << binarySearch(A,x,4) << endl;
+	getchar();
+	return 0;
+}
