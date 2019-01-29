@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+// 线性搜索
+int linearSearch(int* A,int x,int length)
+{
+	int i = 0;
+	while(length)
+	{
+		if(A[i] == x)
+		return i;
+		--length;
+		++i;
+	}
+	return -1;
+}
+
+int main()
+{
+	int A[8] = {1 ,2 ,6 ,34 ,8};
+	int x = 22;
+	cout << "在数组中的位置：" << linearSearch(A,x,8) << endl;
+	getchar();
+	return 0;
+}
