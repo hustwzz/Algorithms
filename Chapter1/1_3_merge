@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// 归并
+int* merge(int* A,int* B,int length1,int length2)
+{
+	int *C = new int[length1+length2];
+	int s = 0,t = 0,p = 0;
+	while(s < length1 && t < length2)
+	{
+		if(A[s] <= B[t])
+		{
+			 C[p] = A[s];
+			 ++s;
+			 ++p;
+		}
+		else
+		{
+			C[p] = B[t];
+			 ++t;
+			 ++p;
+		}
+	}
+	while(s != length1)
+	{
+		 C[p] = A[s];
+			 ++s;
+			 ++p;
+	}
+	while(t != length2)
+	{
+		 C[p] = B[t];
+			 ++t;
+			 ++p;
+	}
+	return C;
+}
+
+int main()
+{
+	int A[4] = {1 ,2 ,6 ,34};
+	int B[2] = {5,111};
+	int *C = merge(A,B,4,2);
+	for(int i = 0;i < 6;++i)
+		cout << C[i] << " " ;
+	delete[] C;
+	getchar();
+	return 0;
+}
